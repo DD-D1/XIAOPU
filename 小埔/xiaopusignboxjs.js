@@ -22,6 +22,13 @@
 "val": "1",
 "type": "number",
 "desc": "指定几个账号,跑几个账号的任务,最多跑10个账号"
+},
+{
+"id": "noNolog",
+"name": "系统通知",
+"val": "1",
+"type": "number",
+"desc": "1关闭系统通知,0打开系统通知"
 }
 ],
 "repo": "https://github.com/DD-D1/XIAOPU/blob/main/xiaopu/xiaopusign.js",
