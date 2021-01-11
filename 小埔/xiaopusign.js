@@ -100,7 +100,7 @@ const logs=0;//设置0关闭日志,1开启日志
 
 const log=0;//0关闭系统日志,1开启系统日志,和系统通知不要一起打开,关闭系统通知就要打开,系统日志
 
-const noNolog=0;//1关闭系统通知,0打开系统通知
+let noNolog = ($.getval('noNolog') || '0');//1关闭系统通知,0打开系统通知
 
 let dd = "" //
 let score = 0;
