@@ -5,7 +5,7 @@
 "icon": "http://elf.static.maibaapp.com/content/ios-countdown/11891342/avatar/11591339654571.png",
 "repo": "https://github.com/DD-D1/XIAOPU",
 "apps": [{
-"id": "sqxssign",
+"id": "xiaopusign",
 "name": "笑谱APP",
 "keys": ["iboxpayheader","iboxpaybody","iboxpayheader2","iboxpaybody2","iboxpayheader3","iboxpaybody3","iboxpayheader4","iboxpaybody4","iboxpayheader5","iboxpaybody5","iboxpayheader6","iboxpaybody6","iboxpayheader7","iboxpaybody7","iboxpayheader8","iboxpaybody8","iboxpayheader9","iboxpaybody9","iboxpayheader10","iboxpaybody10"],
 "author": "@dd",
