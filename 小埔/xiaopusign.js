@@ -258,7 +258,7 @@ function profit(timeout=0) {
           if(logs==1)console.log(data)
           $.profit = data;
 if($.profit.resultCode== 1)
-dd+= "金币查询,现金约"+(Number($.profit.data.balanceSum)/100).toFixed(2)+"元💸"+",今日"+$.profit.data.coinSum+"💰金币\n";
+dd+= "金币查询,现金约"+(Number($.profit.data.balanceSum)/100).toFixed(2)+"元💸"+",今日"+$.profit.data.coinSum+"💰金币\n\n";
 
         } catch (e) {
           $.logErr(e, resp);
