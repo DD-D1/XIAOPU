@@ -95,6 +95,9 @@ MITM= veishop.iboxpay.com
 
 
 
+
+
+
 const DD ='笑谱APP';
 
 const $ = new Env(DD);
@@ -113,6 +116,10 @@ let noNolog = ($.getval('noNolog') || '0');//1关闭系统通知,0打开系统�
 
 let dd = "" //
 let score = 0;
+let header;
+var nowtime =''
+
+ 
 
 
 
@@ -121,6 +128,11 @@ const iboxpaybodyArr = [];
 
 let iboxpayheader = $.getdata('iboxpayheader');
 let iboxpaybody = $.getdata('iboxpaybody');
+
+
+
+
+
 
 if ($.isNode()) {
   if (process.env.IBOXPAYHEADER && process.env.IBOXPAYHEADER.indexOf('#') > -1) {
@@ -176,10 +188,10 @@ if (typeof $request != "undefined") {
     await xiaopusign()
   } else{
 
-if (!iboxpayheaderArr[0]) {
+if (!iboxpaybodyArr[0]) {
     $.msg($.name, '运行前需要获取cookie点击前往\n', 'https://bbc.iboxpay.com/ht-ka/#/invited-receive-cash/help-friend-h5?qrcode=1348511657509240832', {"open-url": "https://bbc.iboxpay.com/ht-ka/#/invited-receive-cash/help-friend-h5?qrcode=1348511657509240832"});
     return;
-  } else {console.log(`\n************ 脚本共${iboxpayheaderArr.length}个${$.name}账号  ************\n`
+  } else {console.log(`\n************ 脚本共${iboxpaybodyArr.length}个${$.name}账号  ************\n`
   );
   console.log(`\n============ 脚本执行时间(TM)：${new Date(new Date().getTime() + 0 * 60 * 60 * 1000).toLocaleString('zh', {hour12: false})}  =============\n`)}
 
@@ -237,24 +249,29 @@ console.log("...开始执行【"+$.iboxpay.data.customerInfo.nickname+"】账号
 
 function Coin() {
   return new Promise((resolve) => {
+nowtime = Date.now();
+ header = iboxpayheader.replace(/\d{21,33}/,`31348857648073203712${nowtime}`);
 for (let i = 0; i < 5; i++) {
    $.index = i + 1;
     setTimeout( ()=>{
       let Url = {
         url : `https://veishop.iboxpay.com/nf_gateway/nf_customer_activity/day_cash/v1/give_gold_coin_by_video.json`,
-        headers : JSON.parse(iboxpayheader),
+        headers : JSON.parse(header),
         body: iboxpaybody,
+     
       }
       $.post(Url, async (err, resp, data) => {
         try {
           data = JSON.parse(data);
+      
           if(logs==1)console.log(data)
           $.complete = data;
 if($.complete.resultCode== 1){
 console.log('开始第'+(i+1)+'次阅读视频+'+$.complete.data.goldCoinNumber+"金币,请等待20s\n") 
+
 score += $.complete.data.goldCoinNumber;}
 await $.wait(90000);
-dd = `本次共完成${$.index}次阅读,共计获得${score}个金币,阅读结束\n`
+dd=`本次共完成${$.index}次阅读,共计获得${score}个金币,阅读结束\n`
 if($.complete.resultCode== 0)
 console.log($.complete.errorDesc+'\n');
         } catch (e) {
@@ -275,10 +292,11 @@ console.log($.complete.errorDesc+'\n');
  
 function profit(timeout=0) {
   return new Promise((resolve) => {
+header = iboxpayheader.replace(/\d{21,33}/,`31348857648073203712${nowtime}`);
     setTimeout( ()=>{
       let Url = {
         url : `https://veishop.iboxpay.com/nf_gateway/nf_customer_activity/day_cash/v1/balance.json?source=WX_APP_KA_HTZP`,
-        headers : JSON.parse(iboxpayheader),
+        headers : JSON.parse(header),
      
       }
       $.get(Url, async (err, resp, data) => {
@@ -337,7 +355,6 @@ if(iboxpaybody)
 
 
 }
-
 
 
 
