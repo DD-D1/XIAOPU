@@ -32,7 +32,7 @@
 }
 ],
 "repo": "https://github.com/DD-D1/XIAOPU/blob/main/xiaopu/xiaopusign.js",
-"icons": ["https://raw.githubusercontent.com/DD-D1/XIAOPU/main/xiaopu/F3453B39-F2B3-4B12-8923-4DF6341CC7DD.png","https://raw.githubusercontent.com/DD-D1/XIAOPU/main/xiaopu/F3453B39-F2B3-4B12-8923-4DF6341CC7DD.png"],
+"icons": ["https://raw.githubusercontent.com/DD-D1/XIAOPU/main/xiaopu/B1332A0E-D31E-4682-9C28-5E9D68E56E22.png","https://raw.githubusercontent.com/DD-D1/XIAOPU/main/xiaopu/B1332A0E-D31E-4682-9C28-5E9D68E56E22.png"],
 "script": "https://raw.githubusercontent.com/DD-D1/XIAOPU/main/xiaopu/xiaopusign.js"
 }]
 }
